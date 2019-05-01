@@ -1,4 +1,4 @@
-FROM pymesh/pymesh:py36
+FROM aymericferreira/pymesh-pillow
 MAINTAINER Behzad Samadi bsamadi@nubonetics.com
 
 # metadata
@@ -6,5 +6,4 @@ LABEL version="0.1"
 LABEL description="Pymesh"
 
 RUN apt-get update && \
-    apt-get install libc6 && \
     pip install jupyter
