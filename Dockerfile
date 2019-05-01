@@ -1,4 +1,4 @@
-FROM pymesh/pymesh:py3.6
+FROM pymesh/pymesh:latest
 MAINTAINER Behzad Samadi bsamadi@nubonetics.com
 
 # metadata
