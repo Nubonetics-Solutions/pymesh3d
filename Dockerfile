@@ -5,4 +5,4 @@ MAINTAINER Behzad Samadi bsamadi@nubonetics.com
 LABEL version="0.1"
 LABEL description="Pymesh"
 
-RUN pip install jupyter
+RUN pip install jupyter ptvsd
