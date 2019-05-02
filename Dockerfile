@@ -22,10 +22,10 @@ RUN apt-get update && apt-get install -y \
     apt-get purge -y cmake
     
 WORKDIR /tmp/cmake
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.tar.gz && \
-    tar -xzvf cmake-3.14.3-Linux-x86_64.tar.gz > /dev/null
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.13.4/cmake-3.13.4.tar.gz && \
+    tar -xzvf cmake-3.13.4.tar.gz > /dev/null
 
-WORKDIR cmake-3.14.3-Linux-x86_64
+WORKDIR cmake-3.13.4
 RUN ./bootstrap > /dev/null && \
     make -j$(nproc --all) > /dev/null && \
     make install > /dev/null
