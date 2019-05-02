@@ -29,8 +29,16 @@ WORKDIR $PYMESH_PATH
 
 RUN git submodule update --init && \
     pip install -r $PYMESH_PATH/python/requirements.txt && \
-    ./setup.py bdist_wheel && \
-    rm -rf build third_party/build && \
-    pip install dist/pymesh2*.whl && \
+    mkdir build
+    
+WORKDIR $PYMESH_PATH/build
+
+RUN cmake .. && \
+    make && \
+    make tools
+
+WORKDIR $PYMESH_PATH
+
+RUN rm -rf build third_party/build && \
     python -c "import pymesh; pymesh.test()" && \
     python $PYMESH_PATH/docker/patches/patch_wheel.py
