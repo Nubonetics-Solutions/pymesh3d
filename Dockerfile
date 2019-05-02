@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     libboost-thread-dev && \
     apt-get clean && \
     apt-get purge -y cmake && \
-    wget cmake-3.14.3-Linux-x86_64.sh && chmod +x cmake-3.14.3-Linux-x86_64.sh && ./cmake-3.14.3-Linux-x86_64.sh && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.sh && chmod +x cmake-3.14.3-Linux-x86_64.sh && ./cmake-3.14.3-Linux-x86_64.sh && \
     git clone --single-branch -b $BRANCH https://github.com/PyMesh/PyMesh.git
     
 RUN pip install jupyter ptvsd
