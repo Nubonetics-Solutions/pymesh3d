@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y \
     libboost-dev \
     libboost-thread-dev && \
     apt-get clean && \
+    apt-get purge cmake && \
+    apt-get install cmake && \
     git clone --single-branch -b $BRANCH https://github.com/PyMesh/PyMesh.git
     
 RUN pip install jupyter ptvsd
