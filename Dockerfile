@@ -19,11 +19,21 @@ RUN apt-get update && apt-get install -y \
     libboost-dev \
     libboost-thread-dev && \
     apt-get clean && \
-    apt-get purge -y cmake && \
-    wget https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.sh && chmod +x cmake-3.14.3-Linux-x86_64.sh && ./cmake-3.14.3-Linux-x86_64.sh && \
-    git clone --single-branch -b $BRANCH https://github.com/PyMesh/PyMesh.git
+    apt-get purge -y cmake
     
-RUN pip install jupyter ptvsd
+WORKDIR /tmp/cmake
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-Linux-x86_64.tar.gz && \
+    tar -xzvf cmake-3.14.3-Linux-x86_64.tar.gz > /dev/null
+
+WORKDIR cmake-3.14.3-Linux-x86_64
+RUN ./bootstrap > /dev/null && \
+    make -j$(nproc --all) > /dev/null && \
+    make install > /dev/null
+
+WORKDIR /
+RUN rm -rf /tmp/cmake && \
+    git clone --single-branch -b $BRANCH https://github.com/PyMesh/PyMesh.git  && \
+    pip install jupyter ptvsd
     
 ENV PYMESH_PATH /root/PyMesh
 ENV NUM_CORES $NUM_CORES
