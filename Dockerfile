@@ -39,6 +39,8 @@ RUN rm -rf /tmp/cmake && \
     wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list && \
     sh -c 'echo deb https://apt.repos.intel.com/mkl all main > /etc/apt/sources.list.d/intel-mkl.list'
 
+RUN apt-get update && \
+    apt-get install intel-mkl
     
 ENV PYMESH_PATH /root/PyMesh
 ENV NUM_CORES $NUM_CORES
