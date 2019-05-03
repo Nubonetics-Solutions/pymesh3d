@@ -30,7 +30,7 @@ RUN ./bootstrap > /dev/null && \
     make -j$(nproc --all) > /dev/null && \
     make install > /dev/null
 
-WORKDIR /
+WORKDIR /root/
 RUN rm -rf /tmp/cmake && \
     git clone --single-branch -b $BRANCH https://github.com/PyMesh/PyMesh.git  && \
     pip install jupyter ptvsd
