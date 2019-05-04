@@ -19,7 +19,7 @@ ENV NUM_CORES $NUM_CORES
 WORKDIR $PYMESH_PATH
 
 RUN git submodule update --init && \
-    pip install -r $PYMESH_PATH/python/requirements.txt && \
+    pip3 install -r $PYMESH_PATH/python/requirements.txt && \
     mkdir build
     
 WORKDIR $PYMESH_PATH/third_party
