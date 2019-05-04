@@ -8,7 +8,7 @@ ARG BRANCH="master"
 ARG NUM_CORES=2
 WORKDIR /root/
 COPY install_dep.sh /root/
-RUN ./install_dep.sh
+RUN chmod +x install_dep.sh && ./install_dep.sh
 
 WORKDIR /root/
 RUN git clone --single-branch -b $BRANCH https://github.com/PyMesh/PyMesh.git  && \
