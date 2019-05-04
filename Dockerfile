@@ -7,7 +7,7 @@ LABEL description="Pymesh"
 ARG BRANCH="master"
 ARG NUM_CORES=2
 WORKDIR /root/
-
+ADD install_dep.sh
 RUN ./install_dep.sh
 
 WORKDIR /root/
