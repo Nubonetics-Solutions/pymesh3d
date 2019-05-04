@@ -29,3 +29,5 @@ cd cmake-3.13.4
 ./bootstrap > /dev/null && \
     make -j$(nproc --all) > /dev/null && \
     make install > /dev/null
+    
+rm -rf /tmp/cmake
