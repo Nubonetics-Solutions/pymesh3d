@@ -11,10 +11,10 @@ apt-get update && apt-get install -y \
     libtbb-dev \
     python3-dev \
     python3-setuptools \
-	  python3-numpy \
-	  python3-scipy \
-	  python3-nose \
-	  python3-pip \
+    python3-numpy \
+    python3-scipy \
+    python3-nose \
+    python3-pip \
     wget && \
     apt-get clean
 
