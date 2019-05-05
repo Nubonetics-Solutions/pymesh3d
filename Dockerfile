@@ -40,6 +40,7 @@ RUN cmake .. && \
 
 WORKDIR $PYMESH_PATH
 
-RUN rm -rf build third_party/build && \
+RUN python3 setup.py install && \
+    rm -rf build third_party/build && \
     python -c "import pymesh; pymesh.test()" && \
     python $PYMESH_PATH/docker/patches/patch_wheel.py
