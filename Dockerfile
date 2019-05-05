@@ -42,5 +42,5 @@ WORKDIR $PYMESH_PATH
 
 RUN python3 setup.py install && \
     rm -rf build third_party/build && \
-    python -c "import pymesh; pymesh.test()" && \
-    python $PYMESH_PATH/docker/patches/patch_wheel.py
+    python3 -c "import pymesh; pymesh.test()" && \
+    python3 $PYMESH_PATH/docker/patches/patch_wheel.py
